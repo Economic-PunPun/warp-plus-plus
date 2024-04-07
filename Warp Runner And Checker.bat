@@ -12,7 +12,7 @@ goto :loop
 :start2
 for /f "tokens=2 delims=: " %%a in ('nslookup -q=A zula.ir ^| findstr /R "^Addresses: [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*$"') do (
     set ip=%%a
-    goto :break
+    goto :break2
 )
 :break2
 start /b warp-plus.exe -e !ip!:880
