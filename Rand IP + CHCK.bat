@@ -6,7 +6,7 @@ set ip=162.159.192.!r!
     goto :break
 )
 :break
-start /b warp-plus.exe -e !ip!:946
+start /b warp-plus.exe -e !ip!:880
 timeout /t 5
 goto :loop
 :start2
@@ -24,11 +24,11 @@ set ip=162.159.192.!r!
     goto :break3
 )
 :break3
-start /b warp-plus.exe -e !ip!:880
+start /b warp-plus.exe -e !ip!:946
 timeout /t 5
 goto :loop3
 :loop
-curl --proxy 127.0.0.1:8086 --max-time 11 http://gstatic.com/generate_204
+curl --proxy 127.0.0.1:8086 --max-time 7 http://gstatic.com/generate_204
 if %errorlevel% neq 0 (
     echo Connection failed
     taskkill /F /IM warp-plus.exe
@@ -36,10 +36,10 @@ if %errorlevel% neq 0 (
 ) else (
     echo Connection successful
 )
-timeout /t 20 /nobreak
+timeout /t 25 /nobreak
 goto :loop
 :loop2
-curl --proxy 127.0.0.1:8086 --max-time 11 http://gstatic.com/generate_204
+curl --proxy 127.0.0.1:8086 --max-time 7 http://gstatic.com/generate_204
 if %errorlevel% neq 0 (
     echo Connection failed
     taskkill /F /IM warp-plus.exe
@@ -47,10 +47,10 @@ if %errorlevel% neq 0 (
 ) else (
     echo Connection successful
 )
-timeout /t 20 /nobreak
+timeout /t 25 /nobreak
 goto :loop2
 :loop3
-curl --proxy 127.0.0.1:8086 --max-time 11 http://gstatic.com/generate_204
+curl --proxy 127.0.0.1:8086 --max-time 7 http://gstatic.com/generate_204
 if %errorlevel% neq 0 (
     echo Connection failed
     taskkill /F /IM warp-plus.exe
@@ -58,5 +58,5 @@ if %errorlevel% neq 0 (
 ) else (
     echo Connection successful
 )
-timeout /t 20 /nobreak
+timeout /t 25 /nobreak
 goto :loop3
